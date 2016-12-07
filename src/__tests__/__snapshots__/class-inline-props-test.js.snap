@@ -40,5 +40,26 @@ Foo.propTypes = {
   a_number: require(\'react\').PropTypes.number.isRequired,
   external: babelPluginFlowReactPropTypes_proptype_ExternalType
 };
-exports.default = Foo;"
+exports.default = Foo;
+
+var UnboxedFoo = exports.UnboxedFoo = function (_React$Component2) {
+  _inherits(UnboxedFoo, _React$Component2);
+
+  function UnboxedFoo() {
+    _classCallCheck(this, UnboxedFoo);
+
+    return _possibleConstructorReturn(this, (UnboxedFoo.__proto__ || Object.getPrototypeOf(UnboxedFoo)).apply(this, arguments));
+  }
+
+  _createClass(UnboxedFoo, [{
+    key: \'render\',
+    value: function render() {
+      return React.createElement(\'div\', null);
+    }
+  }]);
+
+  return UnboxedFoo;
+}(React.Component);
+
+UnboxedFoo.propTypes = babelPluginFlowReactPropTypes_proptype_ExternalType;"
 `;

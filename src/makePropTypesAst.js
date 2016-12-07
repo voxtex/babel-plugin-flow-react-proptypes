@@ -3,6 +3,10 @@ import * as t from 'babel-types';
 import template from 'babel-template';
 
 export default function makePropTypesAst(propTypeData) {
+  if(typeof propTypeData === 'string') {
+    return t.identifier(propTypeData);
+  }
+
   const rootProperties = propTypeData.properties.map(({key, value}) => {
     return t.objectProperty(
       t.identifier(key),

@@ -93,11 +93,10 @@ module.exports = function flowReactPropTypes(babel) {
       throw new Error(`Did not find type annotation for ${name}`);
     }
 
-    if (!props.properties) {
-      // Bail out if we don't have any properties. This will be the case if
-      // we have an imported PropType, like:
-      // import type { T } from '../types';
-      // const C = (props: T) => <div>{props.name}</div>;
+    if (typeof props !== 'string' && !props.properties) {
+      // Bail out if we aren't an imported type and don't have properties.
+      // This will be the case for an 'any' type annotation, like:
+      // const C = (props: any) => <div>{props.name}</div>;
       return;
     }
 

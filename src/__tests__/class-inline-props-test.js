@@ -14,6 +14,14 @@ export default class Foo extends React.Component {
     return <div />
   }
 }
+
+export class UnboxedFoo extends React.Component {
+  props: ExternalType
+
+  render () {
+    return <div />
+  }
+}
 `;
 
 it('class-inline-props', () => {
