@@ -236,7 +236,7 @@ module.exports = function flowReactPropTypes(babel) {
           [
             t.memberExpression(t.identifier('module'), t.identifier('exports')),
             t.stringLiteral(getExportNameForType(name)),
-            propTypesAst,
+            t.objectExpression([t.objectProperty(t.identifier('value'), propTypesAst)]),
           ]
         ));
         path.insertAfter(exportAst);
